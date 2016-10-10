@@ -28,12 +28,11 @@ namespace LcdControl
 
         public void DoLogic()
         {
-            App.AllocConsole();
-            Server server = new Server(13373);
-            server.AcceptLoop();
+            //Server server = new Server(13373);
+            //server.AcceptLoop();
 
             LogitechGSDK.LogiLedInit();
-            LogitechGSDK.LogiLedPulseLighting(0, 100, 0, LogitechGSDK.LOGI_LED_DURATION_INFINITE, 50);
+            LogitechGSDK.LogiLedPulseLighting(0, 100, 0, LogitechGSDK.LOGI_LED_DURATION_INFINITE, 20);
         }
     }
 }
