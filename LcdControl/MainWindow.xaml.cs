@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LedCSharp;
 
 namespace LcdControl
 {
@@ -22,6 +23,17 @@ namespace LcdControl
         public MainWindow()
         {
             InitializeComponent();
+            DoLogic();
+        }
+
+        public void DoLogic()
+        {
+            App.AllocConsole();
+            Server server = new Server(13373);
+            server.AcceptLoop();
+
+            LogitechGSDK.LogiLedInit();
+            LogitechGSDK.LogiLedPulseLighting(0, 100, 0, LogitechGSDK.LOGI_LED_DURATION_INFINITE, 50);
         }
     }
 }
